@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const authController = require('../controllers/authController');
+const tagController = require('../controllers/tagController');
+router.use(authController.auth);
+router.get('/:id', tagController.get);
+router.get('/', tagController.getAll);
+router.post('/', tagController.create);
+router.patch('/:id', tagController.update);
+router.delete('/:id', tagController.delete);
+module.exports = router;
